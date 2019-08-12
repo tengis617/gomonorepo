@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["task.go"],
+    importpath = "github.com/tengis617/gomonorepo/kanban",
+    visibility = ["//visibility:public"],
+    deps = ["//:go_default_library"],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["task_test.go"],
+    embed = [":go_default_library"],
+    deps = ["//:go_default_library"],
+)
